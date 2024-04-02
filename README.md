@@ -4,7 +4,16 @@
 Imprimir un listado con los números del 1 al 100 cada uno con su respectivo cuadrado.
 
 ```mermaid
-
+graph TB;
+    
+    A(Inicio)
+    A --> B[numero : int]
+    B --> C{¿i > 100?}
+    C -- si --> D(fin)
+    C -- no --> E[numero ** 2]
+    E --> F[print numero y el cuadrado del numero]
+    F --> G[numero += 1]
+    G --> C{¿i > 100?}
 ```
 
 ```ruby
