@@ -26,6 +26,38 @@ while numero <= 100:
 
 # 2 
 Imprimir un listado con los números impares desde 1 hasta 999 y seguidamente otro listado con los números pares desde 2 hasta 1000.
+
+```mermaid
+flowchart TD
+A(inicio)
+B[par = 2]
+C[impar = 1]
+D[escribir 'numeros impares']
+E{¿impar > 999?}
+F[escribir impar]
+G[impar = impar + 2]
+L[escribir 'numeros pares']
+H{¿par > 1000?}
+I[escribir par]
+J[par = par + 2]
+K(Fin)
+
+
+A --> B
+B --> C
+C --> D
+D --> E
+E -- no --> F
+F --> G
+G --> E
+E -- si --> L
+L --> H 
+H -- no --> I
+I --> J
+J --> H
+H -- si --> K
+
+```
 ```ruby
 # Números impares del 1 al 999 
 print("Números impares del 1 al 999:")
@@ -44,6 +76,23 @@ while par <= 1000:
 ```
 # 3 
 Imprimir los números pares en forma descendente hasta 2 que son menores o iguales a un número natural n ≥ 2 dado
+```mermaid
+graph TD
+    A[inicio] --> B
+    B[n] --> C{¿n < 2?}
+    C -- Sí --> D[Imprime 'El número ingresado debe ser mayor o igual a 2.']
+    C -- No --> E{¿n impar?}
+    E -- Sí --> F[Resta 1 a n]
+    E -- No --> G[Continúa]
+    F --> H[Inicia ciclo while n >= 2]
+    G --> H
+    H --> I{¿n >= 2?}
+    I -- Sí --> J[Imprime n]
+    J --> K[Resta 2 a n]
+    K --> I
+    I -- No --> L[Fin]
+
+```
 ```ruby
 # Solicitar al usuario que ingrese un número natural n mayor que 2
 n = int(input("Ingrese un número natural n ≥ 2: "))
